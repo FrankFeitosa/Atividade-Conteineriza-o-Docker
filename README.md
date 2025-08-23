@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
@@ -96,3 +97,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+=======
+# Atividade-Conteinerização-Docker
+Criação de Conteiner com Docker e utilizando Nestjs com CRUD e Orm Prisma. Vou utilizar o exemplo de Curso.
+>>>>>>> 23e6940fee5b2694c063735ddb1c1a677f4756b5
