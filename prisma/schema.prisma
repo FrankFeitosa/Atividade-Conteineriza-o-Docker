@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  nome String
+  email String @unique
+  password String
+  type typeUser @default(USER)
+  curso Curso []
+}
+
+model Curso{
+  id Int @id @default(autoincrement())
+  nome String @unique
+  categoria categoriaCurso @default(ESPECIALIZACAO_EM_BACKEND)
+  nivel nivelCurso @default(INICIANTE)
+  aluno User? @relation(fields: [aluno_id], references: [id])
+  aluno_id Int?
+}
+
+model Sala {
+  id Int @id @default(autoincrement())
+  conteudo String
+  professor Professores @default(Jonas_Fortes)
+  turma turmaSala
+  turno turnoSala @default(MANHA)
+}
+
+enum typeUser {
+  ADMIN 
+  USER
+}
+
+enum categoriaCurso {
+  ANALISE_E_DESENVOLVIMENTO_DE_SISTEMAS
+  CIENCIAS_DA_COMPUTACAO
+  ESPECIALIZACAO_EM_FRONTEND
+  ESPECIALIZACAO_EM_BACKEND
+  ENGENHARIA_DA_COMPUTACAO
+  ENGENHARIA_DE_SOFTWARE
+  ESPECIALIZACAO_EM_CIBERSEGURANCA
+}
+
+enum nivelCurso {
+  INICIANTE
+  INTERMEDIARIO
+  AVANCADO
+}
+
+enum turmaSala {
+  Turma_2025_2
+  Turma_2026_1
+}
+
+enum turnoSala {
+  MANHA
+  TARDE
+  NOITE
+}
+
+enum Professores {
+  Jonas_Fortes
+  Valdiano_Rocha
+  Jose_Lianderson
+  Maira_Stefany
+  Amaral_Neto
+  Felipe_Carneiro
+  Luana_Vitoria
+  Wesley_Monteiro
+}
+
+
