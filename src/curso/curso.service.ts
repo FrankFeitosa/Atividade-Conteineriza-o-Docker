@@ -23,7 +23,7 @@ export class CursoService {
     async update(id: number, data: Prisma.CursoUpdateInput): Promise<Curso | null> {
         const foundId = await this.prisma.curso.findUnique({ where: { id } })
         if (!foundId) {
-            throw new NotFoundException(`Usuário com o ID ${id} não encontrado`)
+            throw new NotFoundException(`Curso com o ID ${id} não encontrado`)
         }
         return await this.prisma.curso.update({ where: { id }, data })
     }
@@ -33,7 +33,7 @@ export class CursoService {
             return await this.prisma.curso.delete({ where: { id } })
         } catch {
             throw new NotFoundException(`
-                Usuário com o ID ${id} não encontrado
+                Curso com o ID ${id} não encontrado
                 `)
         }
     }
