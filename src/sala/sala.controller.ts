@@ -4,7 +4,6 @@ import { CreateSalaDto } from './dto/create.sala.dto';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UpdateSalaDto } from './dto/update.sala.dto';
 
-
 @Controller('/sala')
 export class SalaController {
     private salaService: SalaService

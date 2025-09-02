@@ -6,6 +6,7 @@ import { SalaController } from './sala.controller';
 @Module({
     imports: [PrismaModule],
     providers: [SalaService],
-    exports: [SalaController]
+    controllers: [SalaController],
+    exports: []
 })
 export class SalaModule {}
