@@ -21,6 +21,7 @@ model User {
   password String
   googleID String? @unique
   type typeUser @default(USER)
+  // role Role[] @default([ADMIN,USER])
   curso Curso []
 }
 
